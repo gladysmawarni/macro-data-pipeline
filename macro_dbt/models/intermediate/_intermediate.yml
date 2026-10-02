@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: int_macro_observations
+    description: "Unified long table of IMF and World Bank observations. Grain: source x country x indicator x year."
+    columns:
+      - name: observation_id
+        tests: [unique, not_null]
+      - name: source
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['IMF', 'World Bank']
+      - name: country_code
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_wb_countries')
+                field: country_code
+      - name: is_forecast
+        tests: [not_null]
+
+  - name: int_macro_observations_yoy
+    description: "Adds year-over-year change. yoy_change is absolute (percentage points for rates); yoy_pct_change is only populated for level indicators."
+    columns:
+      - name: observation_id
+        tests: [unique, not_null]

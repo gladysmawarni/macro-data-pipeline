@@ -1,0 +1,5 @@
+income_level_code,income_level_name,income_level_order
+LIC,Low income,1
+LMC,Lower middle income,2
+UMC,Upper middle income,3
+HIC,High income,4

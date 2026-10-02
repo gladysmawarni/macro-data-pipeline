@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: dim_country
+    description: "One row per country with readable region and income level."
+    columns:
+      - name: country_code
+        tests: [unique, not_null]
+      - name: region_name
+        tests: [not_null]
+      - name: income_level_name
+        tests: [not_null]
+
+  - name: dim_indicator
+    description: "One row per indicator with unit, source, and category."
+    columns:
+      - name: indicator_code
+        tests: [unique, not_null]
+
+  - name: dim_date
+    description: "One row per year."
+    columns:
+      - name: year
+        tests: [unique, not_null]
+
+  - name: fact_macro_indicator
+    description: "Grain: source x country x indicator x year. Measures: value, yoy_change, yoy_pct_change."
+    columns:
+      - name: observation_id
+        tests: [unique, not_null]
+      - name: country_code
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_country')
+                field: country_code
+      - name: indicator_code
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_indicator')
+                field: indicator_code
+      - name: year
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: year

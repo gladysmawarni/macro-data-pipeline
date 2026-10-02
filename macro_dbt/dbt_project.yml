@@ -26,6 +26,11 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 
+seeds:
+  macro_dbt:
+    +schema: seeds
+
+
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
@@ -40,4 +45,7 @@ models:
     intermediate:
       +materialized: view
       +schema: intermediate
+    marts:
+      +materialized: table
+      +schema: marts
 

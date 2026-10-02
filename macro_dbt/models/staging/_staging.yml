@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: stg_imf_weo
+    description: "IMF WEO values, one row per country x indicator x year."
+    columns:
+      - name: imf_observation_id
+        description: "Surrogate key: country + indicator + year."
+        tests:
+          - unique
+          - not_null
+      - name: indicator_name
+        tests:
+          - not_null
+      - name: country_code
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_wb_countries')
+              field: country_code
+      - name: indicator_code
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['NGDP_RPCH', 'PCPIPCH', 'LUR']
+      - name: year
+        tests: [not_null]
+      - name: is_forecast
+        tests: [not_null]
+
+  - name: stg_wb_wdi
+    description: "World Bank WDI values, one row per country x indicator x year."
+    columns:
+      - name: wb_observation_id
+        tests:
+          - unique
+          - not_null
+      - name: country_code
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_wb_countries')
+              field: country_code
+      - name: indicator_code
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['NY.GDP.PCAP.CD', 'SP.DYN.LE00.IN']
+      - name: indicator_name
+        tests:
+          - not_null
+      - name: year
+        tests: [not_null]
+
+  - name: stg_wb_countries
+    description: "World Bank economies excluding aggregates, one row per country."
+    columns:
+      - name: country_code
+        description: "ISO3 country code."
+        tests:
+          - unique
+          - not_null
+      - name: country_name
+        tests: [not_null]

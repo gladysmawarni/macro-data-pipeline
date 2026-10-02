@@ -1,0 +1,56 @@
+[0m16:19:27.095638 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BC41D928F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BC43584BE0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BC435849D0>]}
+
+
+============================== 16:19:27.126181 | 91e19fa3-f7d0-4697-b1ab-af9ebc1bd7a4 ==============================
+[0m16:19:27.126181 [info ] [MainThread]: Running with dbt=1.12.5
+[0m16:19:27.132183 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'cache_selected_only': 'False', 'target_path': 'None', 'version_check': 'True', 'invocation_command': 'dbt init macro_dbt', 'log_format': 'default', 'use_colors': 'True', 'introspect': 'True', 'debug': 'False', 'printer_width': '80', 'fail_fast': 'False', 'no_print': 'None', 'quiet': 'False', 'maximum_seed_size_mib': '1', 'empty': 'None', 'log_cache_events': 'False', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'log_path': 'logs', 'hints_enabled': 'True', 'write_json': 'True', 'static_parser': 'True', 'profiles_dir': 'C:\\Users\\gladys\\.dbt'}
+[0m16:19:27.359280 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\gladys\.dbt
+[0m16:19:27.378279 [debug] [MainThread]: Starter project path: C:\Users\gladys\miniconda3\envs\personalenv\lib\site-packages\dbt\include\starter_project
+[0m16:19:27.628943 [info ] [MainThread]: Setting up your profile.
+[0m16:20:09.130568 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m16:20:09.140582 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m16:20:09.144579 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m16:22:10.639638 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+
+[0m16:22:10.652618 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\gladys\miniconda3\envs\personalenv\lib\site-packages\dbt\cli\requires.py", line 198, in wrapper
+    result, success = func(*args, **kwargs)
+  File "C:\Users\gladys\miniconda3\envs\personalenv\lib\site-packages\dbt\cli\requires.py", line 144, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\gladys\miniconda3\envs\personalenv\lib\site-packages\dbt\cli\main.py", line 504, in init
+    results = task.run()
+  File "C:\Users\gladys\miniconda3\envs\personalenv\lib\site-packages\dbt\task\init.py", line 363, in run
+    self.setup_profile(profile_name)
+  File "C:\Users\gladys\miniconda3\envs\personalenv\lib\site-packages\dbt\task\init.py", line 265, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "C:\Users\gladys\miniconda3\envs\personalenv\lib\site-packages\dbt\task\init.py", line 182, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "C:\Users\gladys\miniconda3\envs\personalenv\lib\site-packages\dbt\task\init.py", line 166, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+  File "C:\Users\gladys\miniconda3\envs\personalenv\lib\site-packages\dbt\task\init.py", line 132, in generate_target_from_input
+    target[key] = click.prompt(
+  File "C:\Users\gladys\miniconda3\envs\personalenv\lib\site-packages\click\termui.py", line 262, in prompt
+    value = prompt_func(prompt)
+  File "C:\Users\gladys\miniconda3\envs\personalenv\lib\site-packages\click\termui.py", line 245, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m16:22:10.661051 [debug] [MainThread]: Command `dbt init` failed at 16:22:10.658820 after 164.89 seconds
+[0m16:22:10.663051 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BC41D928F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BC477F1AB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002BC477F1780>]}
+[0m16:22:10.665052 [debug] [MainThread]: Flushing usage events
+[0m16:22:11.328907 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m17:37:26.840584 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018A970C2950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018A998CE380>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018A998CE1A0>]}
+
+
+============================== 17:37:26.851726 | 25e7afe9-0137-454a-91b7-b066b8d24769 ==============================
+[0m17:37:26.851726 [info ] [MainThread]: Running with dbt=1.12.5
+[0m17:37:26.854759 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'profiles_dir': 'C:\\Users\\gladys\\.dbt', 'send_anonymous_usage_stats': 'True', 'use_colors': 'True', 'cache_selected_only': 'False', 'target_path': 'None', 'version_check': 'True', 'invocation_command': 'dbt source freshness', 'log_format': 'default', 'warn_error': 'None', 'introspect': 'True', 'debug': 'False', 'printer_width': '80', 'fail_fast': 'False', 'no_print': 'None', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'empty': 'None', 'quiet': 'False', 'maximum_seed_size_mib': '1', 'indirect_selection': 'eager', 'hints_enabled': 'True', 'log_path': 'logs', 'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True'}
+[0m17:37:26.856857 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path C:\Users\gladys\Documents\Coding\Personal\macro-data-pipeline\dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m17:37:26.860683 [debug] [MainThread]: Command `dbt source freshness` failed at 17:37:26.859265 after 0.34 seconds
+[0m17:37:26.861685 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018A970C2950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018A998CE470>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000018A998CE440>]}
+[0m17:37:26.862814 [debug] [MainThread]: Flushing usage events
+[0m17:37:27.582266 [debug] [MainThread]: An error was encountered while trying to flush usage events

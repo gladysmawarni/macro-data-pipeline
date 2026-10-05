@@ -1,0 +1,14 @@
+version: 2
+
+exposures:
+  - name: macro_dashboard
+    type: dashboard
+    maturity: low
+    description: "Power BI dashboard comparing macro indicators across countries."
+    owner:
+      name: gladysmawarni
+    depends_on:
+      - ref('fact_macro_indicator')
+      - ref('dim_country')
+      - ref('dim_indicator')
+      - ref('dim_date')

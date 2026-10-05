@@ -46,3 +46,18 @@ models:
               arguments:
                 to: ref('dim_date')
                 field: year
+      
+      - name: fact_macro_indicator
+        description: "Grain: source x country x indicator x year. Measures: value, yoy_change, yoy_pct_change."
+        columns:
+          - name: observation_id
+            description: "Surrogate key (hash of source, country, indicator, year)."
+            tests: [unique, not_null]
+          - name: value
+            description: "Observed or projected value. The unit depends on the indicator, see dim_indicator.unit."
+          - name: is_forecast
+            description: "True for IMF projection years (year >= forecast_start_year var). World Bank values are always actuals."
+          - name: yoy_change
+            description: "Value minus prior year, only when the prior year exists. Percentage points for rate indicators."
+          - name: yoy_pct_change
+            description: "Percent change vs. prior year. Populated only for level indicators (GDP per capita, life expectancy)."

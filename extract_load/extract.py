@@ -11,7 +11,7 @@ IMF_CODE_LIST = ["NGDP_RPCH", "PCPIPCH", "LUR"]
 WB_CODE_LIST = ["NY.GDP.PCAP.CD", "SP.DYN.LE00.IN"]
 
 
-def get_imf_data(start_year="2000", end_year="2026") -> pd.DataFrame:
+def get_imf_data(start_year="2000", end_year="2030") -> pd.DataFrame:
     client = sdmx.Client("IMF_DATA")
     frames = []
 
@@ -32,7 +32,7 @@ def get_imf_data(start_year="2000", end_year="2026") -> pd.DataFrame:
     return pd.concat(frames, ignore_index=True)
 
 
-def get_wb_data(start_year=2000, end_year=2026) -> pd.DataFrame:
+def get_wb_data(start_year=2000, end_year=2030) -> pd.DataFrame:
     # fetch() yields one dict per country x indicator x year (long format)
     rows = wb.data.fetch(
         WB_CODE_LIST,
